@@ -4,6 +4,8 @@ using MinimalApi.Infraestrutura.Db;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//builder.Services.AddScoped
+
 builder.Services.AddDbContext<DbContexto>(options =>
 {
     options.UseMySql(
