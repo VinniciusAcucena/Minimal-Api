@@ -2,18 +2,21 @@ using System.Data.Common;
 using MinimalApi.Dominio.Entidades;
 using MinimalApi.Dominio.Interfaces;
 using MinimalApi.DTOs;
+using MinimalApi.Infraestrutura.Db;
 
 namespace MinimalApi.Dominio.Servicos;
 
 public class AdministradorServico : IAdministradorServico
 {
     private readonly DbContexto _contexto;
-    public AdministradorServico(DbBatch DbContexto)
+    public AdministradorServico(DbContexto contexto)
     {
-
+        _contexto = contexto;
     }
-    public List<Administrador> Login(LoginDTO loginDTO)
+    public Administrador? Login(LoginDTO loginDTO)
     {
-        throw new NotImplementedException();
+        var adm = _contexto.Administradores.Where(a => a.Email == loginDTO.Email && a.Senha == loginDTO.Senha).FirstOrDefault();
+        return adm;
+            
     }
 }
