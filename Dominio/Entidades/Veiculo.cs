@@ -20,4 +20,11 @@ public class Veiculo
     [Required]
     [StringLength(10)]
     public int Ano { get; set; } = default!;
+
+    public Veiculo(string nome, string marca, int ano)
+    {
+        Nome = nome;
+        Marca = marca;
+        Ano = ano;
+    }
 }
