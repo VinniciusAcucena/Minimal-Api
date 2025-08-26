@@ -20,4 +20,6 @@ public class Administrador
     [Required]
     [StringLength(10)]
     public string Perfil { get; set; } = default!;
+
+    
 }
